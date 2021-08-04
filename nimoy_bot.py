@@ -2,12 +2,17 @@
 
 import requests
 import json
+import configapi as cfg
 
 # Config
 
-api_url = 'https://botsin.space/api/v1'
-account_id = '106691813787549443'
-access_token = 'xxxxxxxxxx'
+# api_url = 'https://botsin.space/api/v1'
+# account_id = '106691813787549443'
+# access_token = 'xxxxxxxxxxxxxxxx'
+
+api_url = cfg.api_url
+account_id = cfg.account_id
+access_token = cfg.access_token
 
 # Authorization header
 
@@ -24,7 +29,7 @@ statuses_count = data['statuses_count']
 
 # Read quotes file
 
-with open('assets/civquotes.json', 'r') as quotes_file:
+with open('civquotes.json', 'r') as quotes_file:
 	data = quotes_file.read()
 
 # Parse quotes file

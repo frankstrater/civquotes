@@ -42,7 +42,7 @@
 
 	$base_url = 'http://localhost/civquotes';
 
-	$quotes_json = file_get_contents('assets/civquotes.json');
+	$quotes_json = file_get_contents('civquotes.json');
 
 	$quotes = json_decode($quotes_json, true);
 
