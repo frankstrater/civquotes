@@ -3,6 +3,9 @@
 import requests
 import json
 import configapi as cfg
+import os
+
+dirname = os.path.dirname(__file__)
 
 # Config
 
@@ -29,7 +32,9 @@ statuses_count = data['statuses_count']
 
 # Read quotes file
 
-with open('civquotes.json', 'r') as quotes_file:
+file_path = os.path.join(dirname, 'civquotes.json')
+
+with open(file_path, 'r') as quotes_file:
 	data = quotes_file.read()
 
 # Parse quotes file
@@ -53,8 +58,10 @@ status = tag + '\n\n' + quote + '\n\n' + '- ' + cite
 
 # Upload media
 
+file_path = os.path.join(dirname, 'assets/' + file)
+
 files = {
-	'file': (file, open('assets/' + file, 'rb'))
+	'file': (file, open(file_path, 'rb'))
 }
 
 response = requests.post(api_url + '/media', headers=headers, files=files)
